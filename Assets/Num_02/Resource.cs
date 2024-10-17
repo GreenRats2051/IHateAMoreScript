@@ -1,10 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Resource : MonoBehaviour
+public class Resource
 {
-    public int ResourceAmount { get; set; }
-    public enum ResourceType { wood, stone, Gold }
+    public int ResourceAmount { get; private set; }
+    public enum ResourceType { Wood, Stone, Gold, Food }
     public ResourceType _resourceType { get; set; }
+    public Resource(ResourceType type, int amount)
+    {
+        _resourceType = type;
+        ResourceAmount = amount;
+    }
+
+    public void AddResource(int amount)
+    {
+        ResourceAmount += amount;
+    }
 }
